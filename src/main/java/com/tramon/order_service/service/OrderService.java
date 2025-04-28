@@ -5,6 +5,8 @@ import com.tramon.order_service.entity.OrderEntity;
 import com.tramon.order_service.repository.OrderRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class OrderService {
     // Оголошення залежностей:
@@ -36,6 +38,10 @@ public class OrderService {
         // Якщо користувач знайдений — замовлення зберігається в базі через
         //orderRepository.
         return orderRepository.save(order);
+    }
+
+    public List<OrderEntity> getAllOrders() {
+        return orderRepository.findAll();
     }
 }
 

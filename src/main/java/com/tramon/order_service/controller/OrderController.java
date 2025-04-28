@@ -2,10 +2,9 @@ package com.tramon.order_service.controller;
 
 import com.tramon.order_service.entity.OrderEntity;
 import com.tramon.order_service.service.OrderService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 // Встановлює базовий шлях для всіх запитів до цього контролера: /orders.
@@ -31,4 +30,10 @@ public class OrderController {
         // Повертає результат — створене замовлення.
         return orderService.createOrder(order);
     }
+
+    @GetMapping
+    public List<OrderEntity> getAllOrders() {
+        return orderService.getAllOrders();
+    }
+
 }
